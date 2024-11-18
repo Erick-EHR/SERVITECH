@@ -1,0 +1,507 @@
+/*////////// Estilos generales //////////*/
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/*////////// Estilos del encabezado //////////*/
+header {
+    background-color: #1c2741;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.logo {
+    max-block-size: 3rem;
+}
+
+.nav-list {
+    display: flex;
+    list-style-type: none;
+    gap: 1rem;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/*/// Estilo para la opción de "Servicios" con menú desplegable ///*/
+.nav-list .dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    min-width: 200px;
+    width: auto;
+    left: -70%;
+    text-align: center;
+}
+
+.nav-list .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #cccccc;
+    border-radius: 8px;
+    list-style-type: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.nav-list .dropdown-menu li {
+    padding: 0.5rem 1rem;
+}
+
+.nav-list .dropdown-menu li a {
+    color: #1c2741;
+    text-decoration: none;
+}
+
+
+.nav-list .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.abrir-menu,
+.cerrar-menu {
+    display: none;
+}
+
+@media screen and (max-width: 540px) {
+    .abrir-menu,
+    .cerrar-menu {
+        display: block;
+        border: 0;
+        font-size: 1rem;
+        background-color: transparent;
+        cursor: pointer;
+        color: #ffffff;
+    }
+
+    .nav {
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 1rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #0c172f;
+        padding: 2rem;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .7);
+    }
+
+    .nav.visible {
+        opacity: 1;
+        visibility: visible;
+        z-index: 999999;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: end;
+    }
+
+    /* Para la versión responsive */
+    .nav-list .dropdown-menu {
+        position: static;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .nav-list .dropdown-menu li {
+        padding: 0;
+    }
+
+    /* Mostrar menú desplegable al hacer clic */
+    .nav-list .dropdown .dropdown-menu {
+        display: none;
+        padding-left: 40px;
+    }
+    .nav-list .dropdown.expanded .dropdown-menu {
+        display: block;
+    }
+}
+
+/*////////// Estilos de las secciones //////////*/
+
+/*/// Inicio Index ///*/
+#inicio {
+    background-image: url("../assets/fondoInicio.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.inicio-container-index {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.inicio-index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#inicio h2 {
+    color: #ffffff;
+    font-size: 10vw;
+}
+
+#inicio h3 {
+    color: #ffffff;
+    font-size: 2vw;
+
+}
+
+    /*/// Carrusel Servicio Index ///*/
+    #services {
+        padding: 0;
+        background-color: #ffffff;
+        text-align: center;
+    }
+
+    #services h2 {
+        font-size: 32px;
+        color: #1c2741;
+        margin-bottom: 40px;
+        padding: 50px;
+    }
+
+    .slider {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .slider-inner {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        transition: all 0.3s ease-in;
+        align-items: center;
+    }
+
+    .slider-inner img {
+        width: 100%;
+        flex-shrink: 0;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    .left-arrow, .right-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 3rem;
+        color: #cccccc;
+        cursor: pointer;
+        z-index: 10;
+        opacity: .7;
+    }
+
+    .left-arrow {
+        left: 10px;
+    }
+
+    .right-arrow {
+        right: 10px;
+    }
+
+
+    /*/// Nosotros Index ///*/
+
+    .nosotros-container-index {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nosotros-index {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        width: 45%;
+        max-width: 800px;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        /*// Estilo para los iconos dentro de cada bloque //*/
+        .nosotros-index i {
+            font-size: 30px;
+            color: #1c2741;
+            margin-bottom: 10px;
+        }
+
+        /*// Estilo para el botón "Saber mas" //*/
+        .boton-saber-mas {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-saber-mas {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #1c2741;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-saber-mas:hover {
+            background-color: #0c172f;
+        }
+
+/*////////// Estilos del pie de página //////////*/
+.footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #1c2741;
+    min-height: 80px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.social-icon, 
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.icon-elem, 
+.menu-elem {
+    margin: 0 10px;
+}
+
+.icon-facebook {
+    color: white;
+    font-size: 25px;
+    transition: "transform" 0.3s ease, color 0.3s ease;
+}
+
+.icon-instagram {
+    color: white;
+    font-size: 25px;
+    transition: "transform" 0.3s ease, color 0.3s ease;
+}
+
+.icon-mail {
+    color: white;
+    font-size: 25px;
+    transition: "transform" 0.3s ease, color 0.3s ease;
+}
+
+.icon-facebook:hover {
+    transform: translateY(-5px) scale(1.1) rotate(5deg);
+    color: #3b5998;
+}
+
+.icon-instagram:hover {
+    transform: translateY(-5px) scale(1.1) rotate(5deg);
+    color: #dd2a7b;
+}
+
+.icon-mail:hover {
+    transform: translateY(-5px) scale(1.1) rotate(5deg);
+    color: #ec1346;
+}
+
+.menu-icon {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    opacity: .5;
+    transition: 0.5s;
+}
+
+.menu-icon:hover {
+    opacity: 1;
+}
+
+.text {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    margin: 15px 0;
+}
+
+/*////////// Contenedor de la sección "Nosotros de ServiTech" //////////*/
+#about {
+    padding: 50px 20px;
+    background-color: #cccccc;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 32px;
+    color: #1c2741;
+    margin-bottom: 40px;
+}
+
+/*/// Estructura para cada bloque de información ///*/
+.nosotros-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nosotros {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 45%;
+    max-width: 400px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*/// Estilo para los iconos dentro de cada bloque ///*/
+.nosotros i {
+    font-size: 50px;
+    color: #1c2741;
+    margin-bottom: 10px;
+}
+
+/*/// Títulos y párrafos dentro de cada bloque ///*/
+.nosotros h3 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    background-color: #0c172f;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.nosotros p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/*////////// Contenedor de la sección "Contacto de ServiTech" //////////*/
+#contact {
+    padding: 50px 20px;
+    background-color: #cccccc;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 32px;
+    color: #1c2741;
+    margin-bottom: 40px;
+}
+
+/*/// Estructura para cada bloque de información ///*/
+.contacto-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 45%;
+    max-width: 400px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*/// Estilo para los iconos dentro de cada bloque ///*/
+.contacto i {
+    font-size: 50px;
+    color: #1c2741;
+    margin-bottom: 10px;
+}
+
+/*/// Títulos y párrafos dentro de cada bloque ///*/
+.contacto h3 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    background-color: #0c172f;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.contacto p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/*/// Agregar un estilo específico a la estructura dinámica (footer y header)  ///*/
+#header-container, 
+#footer-container {
+    width: 100%;
+}
